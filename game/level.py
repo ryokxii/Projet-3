@@ -34,4 +34,4 @@ class Level:
                     self.tiles.add(tile)
                 elif col == "P":
                     player_sprite = Player((x, y))
-                    self.tiles.add(player_sprite)
+                    self.player.add(player_sprite)
