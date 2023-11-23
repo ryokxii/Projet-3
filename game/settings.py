@@ -15,3 +15,12 @@ level_map = [
 tile_size = 64
 screen_width = 1200
 screen_height = len(level_map) * tile_size
+
+# game statuses
+INTRO = 0
+GUIDE = 1
+ABOUT = 2
+START = 3
+WAITING = 4
+GAME = 5
+QUIT = 6
