@@ -17,6 +17,7 @@ class Level:
 
         # dust
         self.dust_sprite = pygame.sprite.GroupSingle()
+        self.player_on_ground = False
 
     def create_jump_partiles(self, pos):
         if self.player.sprite.facing_right:
@@ -34,7 +35,7 @@ class Level:
 
     def create_landing_dust(self):
         if (
-            not self.player_on_ground
+            self.player_on_ground is False
             and self.player.sprite.on_ground
             and not self.dust_sprite.sprites()
         ):
@@ -141,5 +142,7 @@ class Level:
         # le joueur
         self.player.update()
         self.horizontal_movement_collision()
+        self.get_player_on_ground()
         self.vertical_movement_collion()
+        self.create_landing_dust()
         self.player.draw(self.display_surface)
