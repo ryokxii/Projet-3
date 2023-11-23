@@ -11,6 +11,9 @@ level_map = [
     "    XXXX  XXXXXX  XX  XXXX  ",
     "XXXXXXXX  XXXXXX  XX  XXXX  ",
 ]
+# 'X' : tile
+# 'P' : Player spawn point
+# add extra like coins, ennemies, etc
 
 tile_size = 64
 screen_width = 1200
