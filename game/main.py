@@ -14,9 +14,8 @@ class Game:
         self.max_health = 100
         self.cur_health = 100
         self.coins = 0
-        # self.status = OVERWORLD
-        self.status = "overworld"
         self.running = True
+        self.status = INTRO
 
         # audio
         self.level_bg_music = pygame.mixer.Sound("audio/level_music.wav")
@@ -37,8 +36,7 @@ class Game:
             self.change_coins,
             self.change_health,
         )
-        # self.status = LEVEL
-        self.status = "level"
+        self.status = LEVEL
         self.overworld_bg_music.stop()
         self.level_bg_music.play(loops=-1)
 
@@ -48,8 +46,7 @@ class Game:
         self.overworld = Overworld(
             current_level, self.max_level, screen, self.create_level
         )
-        # self.status = OVERWORLD
-        self.status = "overworld"
+        self.status = OVERWORLD
         self.overworld_bg_music.play(loops=-1)
         self.level_bg_music.stop()
 
@@ -65,26 +62,24 @@ class Game:
             self.coins = 0
             self.max_level = 0
             self.overworld = Overworld(0, self.max_level, screen, self.create_level)
-            # self.status = OVERWORLD
-            self.status = "overworld"
+            self.status = OVERWORLD
             self.level_bg_music.stop()
             self.overworld_bg_music.play(loops=-1)
 
     def run(self):
-        while self.running:
-            if self.status == INTRO:
-                Intro(self, screen)
-            elif self.status == GUIDE:
-                Other(self, GUIDE, screen)
-            elif self.status == ABOUT:
-                Other(self, ABOUT, screen)
-            elif self.status == "overworld":  # OVERWORLD
-                self.overworld.run()
-            elif self.status == "level":  # LEVEL
-                self.level.run()
-                self.ui.show_health(self.cur_health, self.max_health)
-                self.ui.show_coins(self.coins)
-                self.check_game_over()
+        if self.status == INTRO:
+            Intro(self, screen)
+        elif self.status == GUIDE:
+            Other(self, GUIDE, screen)
+        elif self.status == ABOUT:
+            Other(self, ABOUT, screen)
+        elif self.status == OVERWORLD:
+            self.overworld.run()
+        elif self.status == LEVEL:
+            self.level.run()
+            self.ui.show_health(self.cur_health, self.max_health)
+            self.ui.show_coins(self.coins)
+            self.check_game_over()
 
 
 # Pygame setup
