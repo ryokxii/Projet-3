@@ -70,8 +70,6 @@ class Game:
         while self.running:
             if self.status == INTRO:
                 Intro(self, screen)
-            elif self.status == START:
-                self.status = OVERWORLD
             elif self.status == GUIDE:
                 Other(self, GUIDE, screen)
             elif self.status == ABOUT:

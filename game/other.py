@@ -12,7 +12,7 @@ class Other:
         back = Button("back", 20, 20, 100, 100)
 
         while self.game.status == status:
-            self.surface.fill("yellow")
+            self.surface.fill((0, 0, 0))
 
             for event in pg.event.get():
                 pos = pg.mouse.get_pos()

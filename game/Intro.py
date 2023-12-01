@@ -27,7 +27,7 @@ class Intro:
                 # mouse click
                 if event.type == pg.MOUSEBUTTONDOWN:
                     if start.isOver(pos):
-                        self.game.status = START
+                        self.game.status = OVERWORLD
                     elif guide.isOver(pos):
                         self.game.status = GUIDE
                     elif about.isOver(pos):
