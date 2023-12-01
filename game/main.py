@@ -14,7 +14,8 @@ class Game:
         self.max_health = 100
         self.cur_health = 100
         self.coins = 0
-        self.status = INTRO
+        # self.status = OVERWORLD
+        self.status = "overworld"
         self.running = True
 
         # audio
@@ -36,7 +37,8 @@ class Game:
             self.change_coins,
             self.change_health,
         )
-        self.status = LEVEL
+        # self.status = LEVEL
+        self.status = "level"
         self.overworld_bg_music.stop()
         self.level_bg_music.play(loops=-1)
 
@@ -46,7 +48,8 @@ class Game:
         self.overworld = Overworld(
             current_level, self.max_level, screen, self.create_level
         )
-        self.status = OVERWORLD
+        # self.status = OVERWORLD
+        self.status = "overworld"
         self.overworld_bg_music.play(loops=-1)
         self.level_bg_music.stop()
 
@@ -62,7 +65,8 @@ class Game:
             self.coins = 0
             self.max_level = 0
             self.overworld = Overworld(0, self.max_level, screen, self.create_level)
-            self.status = OVERWORLD
+            # self.status = OVERWORLD
+            self.status = "overworld"
             self.level_bg_music.stop()
             self.overworld_bg_music.play(loops=-1)
 
@@ -74,9 +78,9 @@ class Game:
                 Other(self, GUIDE, screen)
             elif self.status == ABOUT:
                 Other(self, ABOUT, screen)
-            elif self.status == OVERWORLD:
+            elif self.status == "overworld":  # OVERWORLD
                 self.overworld.run()
-            elif self.status == LEVEL:
+            elif self.status == "level":  # LEVEL
                 self.level.run()
                 self.ui.show_health(self.cur_health, self.max_health)
                 self.ui.show_coins(self.coins)
@@ -89,7 +93,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
 game = Game()
 
-while True:
+while game.running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
