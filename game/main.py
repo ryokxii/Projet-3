@@ -18,8 +18,8 @@ class Game:
         self.status = INTRO
 
         # audio
-        self.level_bg_music = pygame.mixer.Sound("audio/level_music.wav")
-        self.overworld_bg_music = pygame.mixer.Sound("audio/overworld_music.wav")
+        self.level_bg_music = pygame.mixer.Sound("audio/level_music.mp3")
+        self.overworld_bg_music = pygame.mixer.Sound("audio/overworld_music.mp3")
 
         # overworld creation
         self.overworld = Overworld(0, self.max_level, screen, self.create_level)
