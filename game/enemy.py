@@ -19,8 +19,9 @@ class Enemy(AnimatedTile):
     def reverse(self):
         self.speed *= -1
 
-    def update(self, shift):
-        self.rect.x += shift
+    def update(self, shift_x, shift_y):
+        self.rect.x += shift_x
+        self.rect.y += shift_y
         self.animate()
         self.move()
         self.reverse_image()

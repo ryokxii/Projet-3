@@ -15,7 +15,8 @@ class Level:
     ):
         # general setup
         self.display_surface = surface
-        self.world_shift = 0
+        self.world_shift_x = 0
+        self.world_shift_y = 0
         self.current_x = None
 
         # audio
@@ -220,14 +221,26 @@ class Level:
         direction_x = player.direction.x
 
         if player_x < screen_width / 4 and direction_x < 0:
-            self.world_shift = 8
+            self.world_shift_x = 8
             player.speed = 0
         elif player_x > screen_width - (screen_width / 4) and direction_x > 0:
-            self.world_shift = -8
+            self.world_shift_x = -8
             player.speed = 0
         else:
-            self.world_shift = 0
+            self.world_shift_x = 0
             player.speed = 8
+
+    def scroll_y(self):
+        player = self.player.sprite
+        player_y = player.rect.centery
+        direction_y = player.direction.y
+
+        if player_y < screen_height / 3 and direction_y < 0:
+            self.world_shift_y = 8
+        elif player_y > (screen_height / 3) and direction_y > 0:
+            self.world_shift_y = -player.gravity
+        else:
+            self.world_shift_y = 0
 
     def get_player_on_ground(self):
         if self.player.sprite.on_ground:
@@ -294,42 +307,42 @@ class Level:
 
         # sky
         self.sky.draw(self.display_surface)
-        self.clouds.draw(self.display_surface, self.world_shift)
+        self.clouds.draw(self.display_surface, self.world_shift_x, self.world_shift_y)
 
         # background palms
-        self.bg_palm_sprites.update(self.world_shift)
+        self.bg_palm_sprites.update(self.world_shift_x, self.world_shift_y)
         self.bg_palm_sprites.draw(self.display_surface)
 
         # dust particles
-        self.dust_sprite.update(self.world_shift)
+        self.dust_sprite.update(self.world_shift_x, self.world_shift_y)
         self.dust_sprite.draw(self.display_surface)
 
         # terrain
-        self.terrain_sprites.update(self.world_shift)
+        self.terrain_sprites.update(self.world_shift_x, self.world_shift_y)
         self.terrain_sprites.draw(self.display_surface)
 
         # enemy
-        self.enemy_sprites.update(self.world_shift)
-        self.constraint_sprites.update(self.world_shift)
+        self.enemy_sprites.update(self.world_shift_x, self.world_shift_y)
+        self.constraint_sprites.update(self.world_shift_x, self.world_shift_y)
         self.enemy_collision_reverse()
         self.enemy_sprites.draw(self.display_surface)
-        self.explosion_sprites.update(self.world_shift)
+        self.explosion_sprites.update(self.world_shift_x, self.world_shift_y)
         self.explosion_sprites.draw(self.display_surface)
 
         # crate
-        self.crate_sprites.update(self.world_shift)
+        self.crate_sprites.update(self.world_shift_x, self.world_shift_y)
         self.crate_sprites.draw(self.display_surface)
 
         # grass
-        self.grass_sprites.update(self.world_shift)
+        self.grass_sprites.update(self.world_shift_x, self.world_shift_y)
         self.grass_sprites.draw(self.display_surface)
 
         # coins
-        self.coin_sprites.update(self.world_shift)
+        self.coin_sprites.update(self.world_shift_x, self.world_shift_y)
         self.coin_sprites.draw(self.display_surface)
 
         # foreground palms
-        self.fg_palm_sprites.update(self.world_shift)
+        self.fg_palm_sprites.update(self.world_shift_x, self.world_shift_y)
         self.fg_palm_sprites.draw(self.display_surface)
 
         # player sprites
@@ -341,8 +354,9 @@ class Level:
         self.create_landing_dust()
 
         self.scroll_x()
+        self.scroll_y()
         self.player.draw(self.display_surface)
-        self.goal.update(self.world_shift)
+        self.goal.update(self.world_shift_x, self.world_shift_y)
         self.goal.draw(self.display_surface)
 
         self.check_death()
@@ -352,4 +366,4 @@ class Level:
         self.check_enemy_collisions()
 
         # water
-        self.water.draw(self.display_surface, self.world_shift)
+        self.water.draw(self.display_surface, self.world_shift_x, self.world_shift_y)
