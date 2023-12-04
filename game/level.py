@@ -114,7 +114,7 @@ class Level:
                     if type == "coins":
                         if val == "0":
                             sprite = Coin(tile_size, x, y, "graphics/coins/gold", 5)
-                        if val == "1":
+                        elif val == "1":
                             sprite = Coin(tile_size, x, y, "graphics/coins/silver", 1)
 
                     if type == "fg palms":
@@ -122,7 +122,7 @@ class Level:
                             sprite = Palm(
                                 tile_size, x, y, "graphics/terrain/palm_small", 38
                             )
-                        if val == "1":
+                        elif val == "1":
                             sprite = Palm(
                                 tile_size, x, y, "graphics/terrain/palm_large", 64
                             )
@@ -264,7 +264,7 @@ class Level:
             self.dust_sprite.add(fall_dust_particle)
 
     def check_death(self):
-        if self.player.sprite.rect.top > screen_height:
+        if self.player.sprite.rect.top > (screen_height + 300):
             self.create_overworld(self.current_level, 0)
 
     def check_win(self):

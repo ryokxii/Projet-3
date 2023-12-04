@@ -27,15 +27,15 @@ level_1 = {
     "unlock": 2,
 }
 level_2 = {
-    "terrain": "levels/2/level_2_terrain.csv",
-    "coins": "levels/2/level_2_coins.csv",
-    "fg palms": "levels/2/level_2_fg_palms.csv",
-    "bg palms": "levels/2/level_2_bg_palms.csv",
-    "crates": "levels/2/level_2_crates.csv",
-    "enemies": "levels/2/level_2_enemies.csv",
-    "constraints": "levels/2/level_2_constraints.csv",
-    "player": "levels/2/level_2_player.csv",
-    "grass": "levels/2/level_2_grass.csv",
+    "terrain": "levels/3/3_terrain.csv",
+    "coins": "levels/3/3_coins.csv",
+    "fg palms": "levels/2/level_2_fg_palms.csv",  # error drawing the lvl 3 palms
+    "bg palms": "levels/3/3_bg_palms.csv",
+    "crates": "levels/3/3_crates.csv",
+    "enemies": "levels/3/3_ennemies.csv",
+    "constraints": "levels/3/3_constraints.csv",
+    "player": "levels/3/3_player.csv",  # spawns player outside of screen therefore dies, my camera starts at the top of the level - not the bottom
+    "grass": "levels/3/3_grass.csv",
     "node_pos": (480, 610),
     "node_graphics": "graphics/overworld/2",
     "unlock": 3,
@@ -55,15 +55,15 @@ level_3 = {
     "unlock": 4,
 }
 level_4 = {
-    "terrain": "levels/2/level_2_terrain.csv",
-    "coins": "levels/2/level_2_coins.csv",
-    "fg palms": "levels/2/level_2_fg_palms.csv",
-    "bg palms": "levels/2/level_2_bg_palms.csv",
-    "crates": "levels/2/level_2_crates.csv",
-    "enemies": "levels/2/level_2_enemies.csv",
-    "constraints": "levels/2/level_2_constraints.csv",
-    "player": "levels/2/level_2_player.csv",
-    "grass": "levels/2/level_2_grass.csv",
+    "terrain": "levels/3/3_terrain.csv",
+    "coins": "levels/3/3_coins.csv",
+    "fg palms": "levels/2/level_2_fg_palms.csv",  # error drawing the lvl 3 palms
+    "bg palms": "levels/3/3_bg_palms.csv",
+    "crates": "levels/3/3_crates.csv",
+    "enemies": "levels/3/3_ennemies.csv",
+    "constraints": "levels/3/3_constraints.csv",
+    "player": "levels/3/3_player.csv",  # spawns player outside of screen therefore dies, my camera starts at the top of the level - not the bottom
+    "grass": "levels/3/3_grass.csv",
     "node_pos": (880, 210),
     "node_graphics": "graphics/overworld/4",
     "unlock": 5,
