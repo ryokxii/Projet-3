@@ -31,6 +31,13 @@ class Other:
                 if event.type == pg.MOUSEMOTION:
                     back.isOver(pos)
 
+            if status == GUIDE:
+                guide_bg = pg.image.load(GUIDE_BG)
+                self.surface.blit(guide_bg, ORIGIN)
+            elif status == ABOUT:
+                about_bg = pg.image.load(ABOUT_BG)
+                self.surface.blit(about_bg, ORIGIN)
+
             self.surface.blit(back.image, (back.x, back.y))
 
             pg.display.flip()

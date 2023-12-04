@@ -15,3 +15,6 @@ WAITING = 4
 LEVEL = "level"
 QUIT = 6
 OVERWORLD = "overworld"
+
+ABOUT_BG = "graphics/icons/Controles.png"
+GUIDE_BG = "graphics/icons/Controles.png"
