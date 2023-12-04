@@ -237,8 +237,8 @@ class Level:
 
         if player_y < screen_height / 3 and direction_y < 0:
             self.world_shift_y = 8
-        elif player_y > (screen_height / 3) and direction_y > 0:
-            self.world_shift_y = -player.gravity
+        elif player_y > screen_height - (screen_height / 4) and direction_y > 0:
+            self.world_shift_y = -8
         else:
             self.world_shift_y = 0
 
