@@ -10,7 +10,6 @@ ORIGIN = (0, 0)
 INTRO = 0
 GUIDE = 1
 ABOUT = 2
-DEAD = 3
 WAITING = 4
 LEVEL = "level"
 OVERWORLD = "overworld"

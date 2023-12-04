@@ -13,6 +13,7 @@ class Other:
         font = pg.font.Font(None, 42)
         checkbox_rect = pg.Rect(300, 300, 20, 20)
         checkbox_checked = True
+        paused = False
 
         while self.game.status == status:
             for event in pg.event.get():
