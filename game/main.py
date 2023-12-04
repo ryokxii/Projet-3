@@ -92,9 +92,14 @@ game = Game()
 
 while game.running:
     for event in pygame.event.get():
+        keys = pygame.key.get_pressed()
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        elif keys[pygame.K_ESCAPE]:
+            game.status = INTRO
+            game.level_bg_music.stop()
+            game.overworld_bg_music.stop()
 
     screen.fill("grey")
     game.run()
