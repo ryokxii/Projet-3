@@ -32,8 +32,10 @@ class Other:
                         checkbox_checked = not checkbox_checked
                         if checkbox_checked:
                             self.game.overworld_bg_music.play(loops=-1)
+                            self.game.level_bg_music.play(loops=-1)
                         else:
                             self.game.overworld_bg_music.stop()
+                            self.game.level_bg_music.stop()
 
                 # mouse hover
                 if event.type == pg.MOUSEMOTION:

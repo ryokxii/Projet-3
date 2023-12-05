@@ -29,7 +29,7 @@ level_1 = {
 level_2 = {
     "terrain": "levels/3/3_terrain.csv",
     "coins": "levels/3/3_coins.csv",
-    "fg palms": "levels/2/level_2_fg_palms.csv",  # error drawing the lvl 3 palms
+    "fg palms": "levels/3/3_fg_palms.csv",
     "bg palms": "levels/3/3_bg_palms.csv",
     "crates": "levels/3/3_crates.csv",
     "enemies": "levels/3/3_ennemies.csv",
