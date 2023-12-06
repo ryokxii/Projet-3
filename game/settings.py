@@ -6,11 +6,10 @@ screen_width = 1200
 
 ORIGIN = (0, 0)
 
-# game statuses
+# etats de jeu
 INTRO = 0
 GUIDE = 1
 ABOUT = 2
-WAITING = 4
 LEVEL = "level"
 OVERWORLD = "overworld"
 

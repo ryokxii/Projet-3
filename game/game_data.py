@@ -34,7 +34,7 @@ level_2 = {
     "crates": "levels/3/3_crates.csv",
     "enemies": "levels/3/3_ennemies.csv",
     "constraints": "levels/3/3_constraints.csv",
-    "player": "levels/3/3_player.csv",  # spawns player outside of screen therefore dies, my camera starts at the top of the level - not the bottom
+    "player": "levels/3/3_player.csv",
     "grass": "levels/3/3_grass.csv",
     "node_pos": (480, 610),
     "node_graphics": "graphics/overworld/2",
@@ -84,13 +84,3 @@ level_5 = {
 }
 
 levels = {0: level_0, 1: level_1, 2: level_2, 3: level_3, 4: level_4, 5: level_5}
-
-# "terrain": "levels/3/3_terrain.csv",
-# "coins": "levels/3/3_coins.csv",
-# "fg palms": "levels/2/level_2_fg_palms.csv",  # error drawing the lvl 3 palms
-# "bg palms": "levels/3/3_bg_palms.csv",
-# "crates": "levels/3/3_crates.csv",
-# "enemies": "levels/3/3_ennemies.csv",
-# "constraints": "levels/3/3_constraints.csv",
-# "player": "levels/3/3_player.csv",  # spawns player outside of screen therefore dies, my camera starts at the top of the level - not the bottom
-# "grass": "levels/3/3_grass.csv",
