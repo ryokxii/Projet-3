@@ -13,5 +13,4 @@ ABOUT = 2
 LEVEL = "level"
 OVERWORLD = "overworld"
 
-ABOUT_BG = "graphics/icons/Controles.png"
 GUIDE_BG = "graphics/icons/Controles.png"
