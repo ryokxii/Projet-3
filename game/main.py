@@ -93,20 +93,26 @@ game = Game()
 async def main():
     while game.running:
         for event in pygame.event.get():
-            keys = pygame.key.get_pressed()
             if event.type == pygame.QUIT:
+                game.running = False # for Web compatibility
                 pygame.quit()
                 sys.exit()
-            elif keys[pygame.K_ESCAPE]:
-                game.status = INTRO
-                game.level_bg_music.stop()
-                game.overworld_bg_music.stop()
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    game.status = INTRO
+                    game.level_bg_music.stop()
+                    game.overworld_bg_music.stop()
 
         screen.fill("grey")
         game.run()
 
         pygame.display.update()
-        clock.tick(60)
-        await asyncio.sleep(0)
+        
+        clock.tick(60) 
+        
+        await asyncio.sleep(0) 
+
+    pygame.quit()
 
 asyncio.run(main())
