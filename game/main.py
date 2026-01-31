@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, asyncio, sys
 from settings import *
 from level import Level
 from overworld import Overworld
@@ -90,19 +90,23 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
 game = Game()
 
-while game.running:
-    for event in pygame.event.get():
-        keys = pygame.key.get_pressed()
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        elif keys[pygame.K_ESCAPE]:
-            game.status = INTRO
-            game.level_bg_music.stop()
-            game.overworld_bg_music.stop()
+async def main():
+    while game.running:
+        for event in pygame.event.get():
+            keys = pygame.key.get_pressed()
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif keys[pygame.K_ESCAPE]:
+                game.status = INTRO
+                game.level_bg_music.stop()
+                game.overworld_bg_music.stop()
 
-    screen.fill("grey")
-    game.run()
+        screen.fill("grey")
+        game.run()
 
-    pygame.display.update()
-    clock.tick(60)
+        pygame.display.update()
+        clock.tick(60)
+        await asyncio.sleep(0)
+
+asyncio.run(main())
